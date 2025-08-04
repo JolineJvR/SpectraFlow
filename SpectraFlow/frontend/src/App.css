@@ -1,0 +1,287 @@
+/* frontend/src/App.css */
+
+:root {
+  /* Logo Colors - remain the same for accents */
+  --color-primary-accent: #00ff84; /* Vibrant Green */
+  --color-dark-blue: #1800ad;
+  --color-purple: #3903a4;
+  --color-red: #ef0303;
+
+  /* Neutral Colors for dark theme */
+  --color-darker-grey: #0f0f0f;   /* Your chosen very dark background for body and containers */
+  --color-dark-surface: #1a1a1a;  /* Slightly lighter dark for inner elements/cards */
+  --color-lighter-dark-surface: #222222; /* NEW! Even lighter dark for details section */
+  --color-text-light: #fdfdfd;    /* Very light text for readability on dark backgrounds */
+  --color-border-subtle-dark: #333; /* Darker border for contrast on dark backgrounds */
+  --color-medium-grey: #ccc;     /* Keep for some accents if needed, or adjust */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('./image//fake-brick.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: var(--color-text-light); /* Text color across the whole body */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Use your new darker grey for the body's solid background */
+  background-color: var(--color-darker-grey);
+}
+
+.App {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  /* Use the darker grey for the main app container */
+  background-color: var(--color-darker-grey);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Darker shadow for dark background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  box-sizing: border-box;
+}
+
+.app-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+}
+
+h1, h2 {
+  text-align: center;
+  /* Use a vibrant logo color for headings that stand out on dark */
+  color: var(--color-primary-accent); /* Green for headings */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h2 {
+    font-size: 1.8em;
+    margin-top: 25px;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  /* Use the darker grey for the search bar background */
+  background-color: var(--color-darker-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Darker shadow */
+  margin-bottom: 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  padding: 12px;
+  border: 1px solid var(--color-border-subtle-dark); /* Darker border */
+  border-radius: 8px;
+  flex-grow: 1;
+  max-width: 400px;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: var(--color-text-light); /* Light text color for input */
+  background-color: var(--color-dark-surface); /* Slightly different dark for input background */
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 255, 132, 0.4); /* Glow effect on focus */
+}
+
+.search-bar select {
+  padding: 12px;
+  border: 1px solid var(--color-border-subtle-dark); /* Darker border */
+  border-radius: 8px;
+  background-color: var(--color-dark-surface); /* Darker background for select */
+  color: var(--color-text-light); /* Light text color for select */
+  font-size: 1em;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-bar select:focus {
+    outline: none;
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 255, 132, 0.4);
+}
+
+.search-bar button {
+  padding: 12px 25px;
+  background-color: var(--color-primary-accent);
+  color: var(--color-darker-grey); /* Darker text on vibrant button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  flex-shrink: 0;
+}
+
+.search-bar button:hover {
+  background-color: var(--color-dark-blue); /* Dark blue on hover */
+  transform: translateY(-2px);
+}
+
+
+/* Content Container for Side-by-Side Sections */
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 100%;
+  position: relative;
+}
+
+.search-results-section, .favourites-section {
+  flex: 1;
+  min-width: 300px;
+  /* Use the darker grey for sections background */
+  background-color: var(--color-darker-grey);
+  border: 1px solid var(--color-border-subtle-dark); /* Subtle border */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Darker shadow */
+  box-sizing: border-box;
+}
+
+/* Divider for larger screens */
+@media (min-width: 768px) {
+  .content-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 1px);
+    width: 2px;
+    background-color: var(--color-border-subtle-dark); /* Darker divider */
+    border-radius: 1px;
+    box-shadow: 0 0 5px rgba(255,255,255,0.1); /* Subtle light shadow for divider */
+    z-index: 1;
+  }
+  .search-results-section, .favourites-section {
+      flex: 1 1 calc(50% - 25px);
+  }
+}
+
+/* Individual Result Item Card Styles */
+.result-item {
+  /* Use a slightly lighter dark for cards to create subtle depth */
+  background-color: var(--color-dark-surface); /* Slightly different dark */
+  border: 1px solid var(--color-border-subtle-dark); /* Darker border */
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Darker shadow for cards */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.result-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* Stronger dark shadow on hover */
+}
+
+.result-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.result-item .item-details {
+  /* ... existing styles ... */
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left; /* Align text to the left for better readability within the card */
+  padding-left: 5px; /* Small left padding for text */
+  padding-right: 5px; /* Small right padding for text */
+}
+
+
+.result-item h3 {
+  font-size: 1.2em; /* Slightly larger title for better hierarchy */
+  margin: 0 0 8px 0; /* More space below title */
+  color: var(--color-primary-accent); /* Vibrant green for titles */
+  line-height: 1.3;
+  word-break: break-word; /* Prevent long titles from overflowing */
+}
+
+.result-item p {
+  font-size: 0.9em; /* Slightly larger font size for details */
+  color: var(--color-text-light); /* Use the light text color for better contrast on dark background */
+  margin: 4px 0; /* More vertical spacing between paragraphs */
+  line-height: 1.4; /* Improve line height for readability */
+}
+
+.result-item strong {
+  color: var(--color-purple); /* Use purple from palette for labels */
+  font-weight: bold; /* Ensure labels are bold */
+  margin-right: 5px; /* Add a small space after the label */
+}
+/* Result Item Button Styles (Add to Favourites) */
+.result-item button {
+  background-color: var(--color-primary-accent);
+  color: var(--color-darker-grey); /* Dark text on vibrant button */
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 90%;
+}
+
+.result-item button:hover {
+  background-color: var(--color-dark-blue);
+}
+
+/* Favourites List Specific Button Styles (Remove from Favourites) */
+.favourite-list .result-item button {
+  background-color: var(--color-red); /* Red from logo for remove button */
+}
+
+.favourite-list .result-item button:hover {
+  background-color: #a00; /* Darker red on hover */
+}
+
+.error {
+  color: var(--color-red);
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.search-results, .favourite-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  /* Increase the gap here */
+  gap: 30px; /* Changed from 20px to 30px. You can try 40px too! */
+  margin-top: 20px;
+}
