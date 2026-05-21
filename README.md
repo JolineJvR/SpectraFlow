@@ -1,101 +1,85 @@
-# SpectraFlow
+# SpectraFlow 📼
+> Retro Blockbuster-style media discovery app — Movies, TV Shows & Music
 
-This is a full-stack web application that allows users to search for various media types using the official iTunes Search API. The application is built with a React front-end and a Node.js/Express back-end. It provides a clean, responsive interface for searching and managing a temporary list of favorite items.
+Built with Flask + Python on the backend, plain HTML/CSS/JS on the frontend.
+API keys are stored securely in a `.env` file and never exposed to the browser.
 
-Project Description
-The purpose of this application is to demonstrate a full-stack architecture, including:
+---
 
-A responsive front-end built with React for a user-friendly experience.
+## Project Structure
 
-A back-end server using Node.js and Express to handle API requests and serve the front-end.
+```
+spectraflow/
+├── app.py                  # Flask app & all API routes
+├── requirements.txt        # Python dependencies
+├── .env.example            # Template — copy to .env and fill in your keys
+├── .gitignore              # Keeps .env out of GitHub
+├── templates/
+│   └── index.html          # Main Jinja2 template
+└── static/
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── main.js
+```
 
-Secure communication between the front-end and back-end using JWT for API authorization.
+---
 
-Asynchronous data fetching from a third-party API (iTunes Search API).
+## Getting Started
 
-Key Features
-Attractive User Interface: An intuitive and responsive design built with modern React components.
+### 1. Get your API keys
 
-Comprehensive Search: Users can search for a specific term and filter results by media type, including:
+- **TMDB** (movies & TV): https://www.themoviedb.org/settings/api — free account required
+- **Last.fm** (music): https://www.last.fm/api/account/create — free account required
 
-All
+### 2. Set up your environment
 
-Movies
+```bash
+# Clone or download the project, then:
+cd spectraflow
 
-Podcasts
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate        # Mac/Linux
+venv\Scripts\activate           # Windows
 
-Music
+# Install dependencies
+pip install -r requirements.txt
 
-Audiobooks
+# Copy the .env template and fill in your keys
+cp .env.example .env
+```
 
-Short Films
+### 3. Edit your `.env` file
 
-TV Shows
+```
+TMDB_API_KEY=paste_your_tmdb_key_here
+LASTFM_API_KEY=paste_your_lastfm_key_here
+FLASK_SECRET_KEY=any_long_random_string
+FLASK_ENV=development
+```
 
-Software
+### 4. Run the app
 
-eBooks
+```bash
+python app.py
+```
 
-Dynamic Results Display: Search results are attractively displayed, showing key information like album name, artist, album cover, and release date.
+Then open http://localhost:5000 in your browser.
 
-Favorites List: Users can add and remove items from a favorites list. This list is session-based and is not saved to a database.
+---
 
-Secure API Communication: All API requests from the front-end to the back-end are secured and authorized using JSON Web Tokens (JWT).
+## Features
+- 🎬 Browse & search trending movies (TMDB)
+- 📺 Browse & search trending TV shows (TMDB)
+- 🎵 Browse & search top music tracks (Last.fm)
+- 🔍 Search across all three categories
+- 🎭 Filter by genre
+- 📋 Detail modal for every item
+- 📼 Retro Blockbuster aesthetic with VHS scanlines
 
-Technologies Used
-Front-end
-React: The core library for building the user interface.
+---
 
-HTML & CSS: For structuring and styling the components.
-
-Back-end
-Node.js: The server-side JavaScript runtime environment.
-
-Express.js: A web application framework for Node.js, used to build the server and API endpoints.
-
-JWT (JSON Web Tokens): A standard for creating access tokens that assert a claim. Used here for securing API routes.
-
-Getting Started
-Follow these steps to set up and run the application on your local machine.
-
-Prerequisites
-Node.js and npm installed on your system.
-
-Installation
-Clone the repository:
-
-git clone [repository-url]
-cd [project-folder]
-
-Install dependencies for the server:
-Navigate into the server directory and install the required packages.
-
-cd server
-npm install
-
-Install dependencies for the client:
-Navigate into the client directory and install its dependencies.
-
-cd ../client
-npm install
-
-Running the Application
-This is a full-stack application, so you will need to start both the server and the client separately.
-
-Start the back-end server:
-Open a terminal, navigate to the server directory, and run the server.
-
-cd server
-npm start
-
-The server will typically run on http://localhost:5000.
-
-Start the front-end client:
-Open a second terminal, navigate to the client directory, and start the React development server.
-
-cd ../client
-npm start
-
-The client will automatically open in your web browser at http://localhost:3000. If it doesn't, you can navigate there manually.
-
-You can now use the application to search for media and manage your favorites.
+## Security Note
+Your `.env` file is listed in `.gitignore` — it will **never** be committed to GitHub.
+All API keys live on the server side inside Flask routes. The browser never sees them.

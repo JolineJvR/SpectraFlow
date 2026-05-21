@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpectraFlow — Joline.dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&family=DM+Sans:wght@300;400;500&family=Syne+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav id="topbar">
+  <div>
+    <div class="logo">⬡ SpectraFlow</div>
+    <div class="logo-sub">MEDIA DISCOVERY</div>
+  </div>
+  <div class="now-showing"><div class="rec-dot"></div>NOW BROWSING</div>
+  <a href="/" class="nav-back">portfolio</a>
+</nav>
+
+<div id="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">🎬 NEW RELEASES</span>
+    <span class="marquee-item">📼 BE KIND, REWIND</span>
+    <span class="marquee-item">🎵 TOP TRACKS</span>
+    <span class="marquee-item">📺 HOT SERIES</span>
+    <span class="marquee-item">🍿 STAFF PICKS</span>
+    <span class="marquee-item">🎬 ACTION &amp; ADVENTURE</span>
+    <span class="marquee-item">🎸 CHART TOPPERS</span>
+    <span class="marquee-item">🌟 CRITICALLY ACCLAIMED</span>
+    <span class="marquee-item">📼 LATE FEES APPLY</span>
+    <span class="marquee-item">🎬 NEW RELEASES</span>
+    <span class="marquee-item">📼 BE KIND, REWIND</span>
+    <span class="marquee-item">🎵 TOP TRACKS</span>
+    <span class="marquee-item">📺 HOT SERIES</span>
+    <span class="marquee-item">🍿 STAFF PICKS</span>
+    <span class="marquee-item">🎬 ACTION &amp; ADVENTURE</span>
+    <span class="marquee-item">🎸 CHART TOPPERS</span>
+    <span class="marquee-item">🌟 CRITICALLY ACCLAIMED</span>
+    <span class="marquee-item">📼 LATE FEES APPLY</span>
+  </div>
+</div>
+
+<div id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-label">📼 YOUR NEIGHBOURHOOD MEDIA STORE</div>
+      <h1 class="hero-title">
+        <span class="hl-blue">BROWSE.</span><br>
+        <span class="hl-pink">DISCOVER.</span><br>
+        ENJOY.
+      </h1>
+      <p class="hero-sub">Movies, TV shows, and music — all in one place. Just like wandering the aisles, but faster.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-val">3</div><div class="h-stat-key">CATEGORIES</div></div>
+      <div class="h-stat"><div class="h-stat-val">LIVE</div><div class="h-stat-key">API DATA</div></div>
+      <div class="h-stat"><div class="h-stat-val">∞</div><div class="h-stat-key">TO DISCOVER</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="tabs">
+  <div class="tab active" data-tab="movies"><span>🎬</span> MOVIES</div>
+  <div class="tab" data-tab="tv"><span>📺</span> TV SHOWS</div>
+  <div class="tab" data-tab="music"><span>🎵</span> MUSIC</div>
+</div>
+
+<div id="search-bar">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="search-input" type="text" placeholder="Search titles, artists, albums…">
+  </div>
+  <button class="search-btn" id="search-btn">SEARCH</button>
+  <div class="genre-filter" id="genre-filter"></div>
+</div>
+
+<div id="content">
+  <div class="sec-header">
+    <div class="sec-title" id="sec-title">TRENDING MOVIES</div>
+    <div class="sec-count" id="sec-count"></div>
+  </div>
+  <div class="media-grid" id="media-grid"></div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay">
+  <div id="modal">
+    <div id="modal-banner-wrap"></div>
+    <div class="modal-inner">
+      <button class="modal-close" id="modal-close">[ CLOSE ✕ ]</button>
+      <div class="modal-type" id="modal-type"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-tagline" id="modal-tagline"></div>
+      <div class="modal-meta-row" id="modal-meta-row"></div>
+      <div class="modal-overview" id="modal-overview"></div>
+      <div class="modal-genres" id="modal-genres"></div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
